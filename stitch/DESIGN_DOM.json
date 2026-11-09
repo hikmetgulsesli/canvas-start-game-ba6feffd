@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-11-09T01:35:36.613Z",
+  "screenCount": 1,
+  "screens": {
+    "22f4d74bd5584cde897795336fda5a84": {
+      "screenId": "22f4d74bd5584cde897795336fda5a84",
+      "materialSymbolsRequired": false,
+      "sections": [
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "border-b",
+            "border-slate-800/80",
+            "bg-slate-900/60",
+            "backdrop-blur",
+            "px-8",
+            "py-4",
+            "flex",
+            "items-center",
+            "justify-between"
+          ],
+          "childCount": 5
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-1",
+            "max-w-7xl",
+            "w-full",
+            "mx-auto",
+            "p-6",
+            "md:p-8",
+            "flex",
+            "flex-col",
+            "gap-6"
+          ],
+          "childCount": 18
+        },
+        {
+          "tag": "footer",
+          "layout": "block",
+          "classes": [
+            "border-t",
+            "border-slate-900",
+            "bg-slate-950/80",
+            "px-8",
+            "py-4",
+            "text-center"
+          ],
+          "childCount": 0
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Start",
+          "classes": [
+            "px-7",
+            "py-3",
+            "rounded-xl",
+            "bg-cyan-400",
+            "hover:bg-cyan-300",
+            "text-slate-950",
+            "font-bold",
+            "text-base",
+            "transition-all",
+            "shadow-lg",
+            "shadow-cyan-400/25",
+            "active:scale-95",
+            "flex",
+            "items-center",
+            "gap-2",
+            "shrink-0"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [],
+      "navLinks": [],
+      "cards": [],
+      "icons": [],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {},
+      "fonts": [],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "3"
+      },
+      "behaviorContract": [
+        {
+          "kind": "button",
+          "label": "Start",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "tabBar": [],
+      "title": "Play page - Canvas Start Game"
+    }
+  }
+}
