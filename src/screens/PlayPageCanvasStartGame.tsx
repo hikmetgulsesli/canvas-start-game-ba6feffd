@@ -8,6 +8,8 @@
 // 4. Replace placeholder data with props/state
 
 
+import { useCanvasStartGameStore } from "../features/prod-canvas-start-game/prod-canvas-start-game.store";
+
 export type PlayPageCanvasStartGameActionId = "start-1";
 
 export interface PlayPageCanvasStartGameProps {
@@ -20,6 +22,11 @@ export interface PlayPageCanvasStartGameProps {
 export type PlayPageCanvasStartGameActionCallbacks = NonNullable<PlayPageCanvasStartGameProps["actions"]>;
 
 export function PlayPageCanvasStartGame({ actions }: PlayPageCanvasStartGameProps) {
+  const { state } = useCanvasStartGameStore();
+  const isPlaying = state.applicationState === "playing";
+  const gameStatusText = isPlaying ? "Game started" : "Ready to start";
+  const highScoreText = state.highScore === null ? "0" : String(state.highScore);
+  const highScoreValue = state.highScore === null ? undefined : String(state.highScore);
   return (
     <>
       <div data-surface-id="SURF_PLAY_PAGE" className="flex-1 flex flex-col w-full min-h-screen" data-setfarm-element-ref="E000001" data-observable-refs="OBS_START_GAME_REMAIN_ON_PLAY_ROUTE">
@@ -35,7 +42,7 @@ export function PlayPageCanvasStartGame({ actions }: PlayPageCanvasStartGameProp
               {/* Accessibility status for Game status (OBS_START_GAME_GAME_STARTED_MESSAGE) */}
               <div className="flex items-center gap-2 text-xs font-medium text-slate-400 bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-700/50" data-setfarm-element-ref="E000002" role="status" aria-label="Game status" data-observable-refs="OBS_START_GAME_GAME_STARTED_MESSAGE">
                 <span className="inline-block w-2 h-2 rounded-full bg-slate-500"></span>
-                <span>Ready to start</span>
+                <span>{gameStatusText}</span>
               </div>
               <span className="text-xs font-mono text-slate-500">v1.0.0</span>
             </div>
@@ -66,8 +73,10 @@ export function PlayPageCanvasStartGame({ actions }: PlayPageCanvasStartGameProp
                 <div className="pt-1">
                   <span className="text-xs text-slate-400 block mb-1">Current High Score</span>
                   {/* Accessibility status for High score (OBS_START_GAME_PERSISTED_ZERO_HIGH_SCORE) */}
-                  <div className="text-4xl font-extrabold tracking-tight text-white font-mono flex items-baseline gap-2" data-setfarm-element-ref="E000005" role="status" aria-label="High score" data-observable-refs="OBS_START_GAME_PERSISTED_ZERO_HIGH_SCORE">
-                    <span className="text-cyan-400">0</span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-extrabold tracking-tight text-cyan-400 font-mono" data-setfarm-element-ref="E000005" role="status" aria-label="High score" data-observable-refs="OBS_START_GAME_PERSISTED_ZERO_HIGH_SCORE" data-value={highScoreValue}>
+                      {highScoreText}
+                    </span>
                     <span className="text-xs font-normal text-slate-500 font-sans">PTS</span>
                   </div>
                 </div>
